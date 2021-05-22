@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WorkoutHomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".HomeActivity">
+
+        <TextView
+            android:id="@+id/sets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Sets"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/setsMinusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_baseline_remove_24"
+            app:layout_constraintBottom_toBottomOf="@+id/setDigit"
+            app:layout_constraintEnd_toStartOf="@+id/setDigit"
+            app:layout_constraintTop_toTopOf="@+id/setDigit" />
+
+        <EditText
+            android:id="@+id/setDigit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sets" />
+
+        <ImageButton
+            android:id="@+id/setsPlusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_baseline_add_24"
+            app:layout_constraintBottom_toBottomOf="@+id/setDigit"
+            app:layout_constraintStart_toEndOf="@id/setDigit"
+            app:layout_constraintTop_toTopOf="@+id/setDigit" />
+
+        <View
+            android:id="@+id/setDivider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_margin="16dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/setsPlusButton" />
+
+        <TextView
+            android:id="@+id/workout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Workout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/setDivider" />
+
+        <ImageButton
+            android:id="@+id/workMinusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_baseline_remove_24"
+            app:layout_constraintBottom_toBottomOf="@+id/workTimeMin"
+            app:layout_constraintEnd_toStartOf="@+id/workTimeMin"
+            app:layout_constraintTop_toTopOf="@+id/workTimeMin" />
+
+        <EditText
+            android:id="@+id/workTimeMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:hint="00"
+            app:layout_constraintEnd_toStartOf="@+id/semicolonWork"
+            app:layout_constraintTop_toBottomOf="@+id/workout" />
+
+        <TextView
+            android:id="@+id/semicolonWork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            app:layout_constraintBottom_toBottomOf="@+id/workTimeMin"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/workTimeMin" />
+
+        <EditText
+            android:id="@+id/workTimeSec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:hint="30"
+            app:layout_constraintBottom_toBottomOf="@+id/semicolonWork"
+            app:layout_constraintStart_toEndOf="@+id/semicolonWork"
+            app:layout_constraintTop_toTopOf="@+id/semicolonWork" />
+
+        <ImageButton
+            android:id="@+id/workPlusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_baseline_add_24"
+            app:layout_constraintBottom_toBottomOf="@+id/workTimeSec"
+            app:layout_constraintStart_toEndOf="@id/workTimeSec"
+            app:layout_constraintTop_toTopOf="@+id/workTimeSec" />
+
+        <View
+            android:id="@+id/workDivider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_margin="16dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/workPlusButton" />
+
+        <TextView
+            android:id="@+id/rest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Rest"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/workDivider" />
+
+        <ImageButton
+            android:id="@+id/restMinusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_baseline_remove_24"
+            app:layout_constraintBottom_toBottomOf="@+id/restTimeMin"
+            app:layout_constraintEnd_toStartOf="@+id/restTimeMin"
+            app:layout_constraintTop_toTopOf="@+id/restTimeMin" />
+
+        <EditText
+            android:id="@+id/restTimeMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:hint="00"
+            app:layout_constraintEnd_toStartOf="@+id/semicolonRest"
+            app:layout_constraintTop_toBottomOf="@+id/rest" />
+
+        <TextView
+            android:id="@+id/semicolonRest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            app:layout_constraintBottom_toBottomOf="@+id/restTimeMin"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/restTimeMin" />
+
+        <EditText
+            android:id="@+id/restTimeSec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:hint="30"
+            app:layout_constraintStart_toEndOf="@+id/semicolonRest"
+            app:layout_constraintTop_toBottomOf="@+id/rest" />
+
+        <ImageButton
+            android:id="@+id/restPlusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_baseline_add_24"
+            app:layout_constraintBottom_toBottomOf="@+id/restTimeSec"
+            app:layout_constraintStart_toEndOf="@id/restTimeSec"
+            app:layout_constraintTop_toTopOf="@+id/restTimeSec" />
+
+        <Button
+            android:id="@+id/startWorkout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:background="@android:color/darker_gray"
+            android:text="Start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/restPlusButton" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

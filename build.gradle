@@ -6,6 +6,8 @@ buildscript {
         roomVersion = '2.3.0'
         archLifecycleVersion = '2.2.0'
         timberVersion = '4.7.1'
+        hiltAndroidXVersion = '1.0.0-alpha03'
+        navigationVersion = '2.4.0-alpha01'
     }
     repositories {
         google()
