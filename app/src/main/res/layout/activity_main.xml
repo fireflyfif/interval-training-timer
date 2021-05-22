@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/sets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Sets"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/setsMinusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_baseline_remove_24"
+        app:layout_constraintBottom_toBottomOf="@+id/setDigit"
+        app:layout_constraintEnd_toStartOf="@+id/setDigit"
+        app:layout_constraintTop_toTopOf="@+id/setDigit" />
+
+    <EditText
+        android:id="@+id/setDigit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sets" />
+
+    <ImageButton
+        android:id="@+id/setsPlusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="@+id/setDigit"
+        app:layout_constraintStart_toEndOf="@id/setDigit"
+        app:layout_constraintTop_toTopOf="@+id/setDigit" />
+
+    <View
+        android:id="@+id/setDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_margin="16dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setsPlusButton" />
+
+    <TextView
+        android:id="@+id/workout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Workout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setDivider" />
+
+    <ImageButton
+        android:id="@+id/workMinusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_baseline_remove_24"
+        app:layout_constraintBottom_toBottomOf="@+id/workTime"
+        app:layout_constraintEnd_toStartOf="@+id/workTime"
+        app:layout_constraintTop_toTopOf="@+id/workTime" />
+
+    <EditText
+        android:id="@+id/workTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="00:30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workout" />
+
+    <ImageButton
+        android:id="@+id/workPlusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="@+id/workTime"
+        app:layout_constraintStart_toEndOf="@id/workTime"
+        app:layout_constraintTop_toTopOf="@+id/workTime" />
+
+    <View
+        android:id="@+id/workDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_margin="16dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workPlusButton" />
+
+    <TextView
+        android:id="@+id/rest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Rest"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workDivider" />
+
+    <ImageButton
+        android:id="@+id/restMinusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_baseline_remove_24"
+        app:layout_constraintBottom_toBottomOf="@+id/restTime"
+        app:layout_constraintEnd_toStartOf="@+id/restTime"
+        app:layout_constraintTop_toTopOf="@+id/restTime" />
+
+    <EditText
+        android:id="@+id/restTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="00:30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rest" />
+
+    <ImageButton
+        android:id="@+id/restPlusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="@+id/restTime"
+        app:layout_constraintStart_toEndOf="@id/restTime"
+        app:layout_constraintTop_toTopOf="@+id/restTime" />
+
+    <Button
+        android:id="@+id/startWorkout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:background="@android:color/darker_gray"
+        android:text="Start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restPlusButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

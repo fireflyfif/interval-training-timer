@@ -1,0 +1,2 @@
+rootProject.name = "IntervalTrainingTimer"
+include ':app'
