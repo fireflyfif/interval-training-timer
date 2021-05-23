@@ -63,6 +63,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
 
     implementation "com.jakewharton.timber:timber:$timberVersion"
+    implementation 'com.github.kizitonwose.time:time-android:1.0.4'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
