@@ -1,4 +1,4 @@
-package com.example.intervaltrainingtimer
+package com.example.intervaltrainingtimer.utils
 
 import java.text.*
 

@@ -1,8 +1,9 @@
-package com.example.intervaltrainingtimer
+package com.example.intervaltrainingtimer.ui
 
 import android.os.*
 import androidx.appcompat.app.*
 import androidx.navigation.fragment.*
+import com.example.intervaltrainingtimer.R
 import com.example.intervaltrainingtimer.databinding.*
 import dagger.hilt.android.*
 

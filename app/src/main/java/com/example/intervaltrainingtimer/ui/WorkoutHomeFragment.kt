@@ -1,20 +1,19 @@
-package com.example.intervaltrainingtimer
+package com.example.intervaltrainingtimer.ui
 
 import android.os.*
 import android.view.*
 import androidx.core.widget.*
 import androidx.fragment.app.*
-import com.example.intervaltrainingtimer.TimeUtils.toDecimalString
-import com.example.intervaltrainingtimer.TimeUtils.toMin
-import com.example.intervaltrainingtimer.TimeUtils.toSec
+import androidx.navigation.*
 import com.example.intervaltrainingtimer.databinding.*
-import timber.log.*
+import com.example.intervaltrainingtimer.utils.TimeUtils.toDecimalString
+import com.example.intervaltrainingtimer.utils.TimeUtils.toMin
+import com.example.intervaltrainingtimer.utils.TimeUtils.toSec
 
 class WorkoutHomeFragment : Fragment() {
 
     private val viewModel: HomeWorkoutViewModel by viewModels()
     private var binding: FragmentWorkoutHomeBinding? = null
-    private lateinit var timer : CountDownTimer
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,15 +21,23 @@ class WorkoutHomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentWorkoutHomeBinding.inflate(inflater, container, false)
-        viewModel.calculateWorkout()
         binding?.apply {
             setupSets()
             setupWorkoutTime()
             setupRestingTime()
-            startWorkout.setOnClickListener {
-                timer.start()
-            }
+            viewModel.combinedData.observe(viewLifecycleOwner, { values ->
+                startWorkout.setOnClickListener {
+                    it.findNavController().navigate(
+                        WorkoutHomeFragmentDirections.actionStartWorkout(
+                            values.sets!!,
+                            values.workoutTimeInMillis!!,
+                            values.restingTimeInMillis!!
+                        )
+                    )
+                }
+            })
         }
+
         return binding?.root
     }
 
@@ -72,28 +79,12 @@ class WorkoutHomeFragment : Fragment() {
             val sec = workInMillis.toSec().toDecimalString()
             workTimeMin.setText(min)
             workTimeSec.setText(sec)
-            setCountdownTimer(workInMillis)
         })
         workMinusButton.setOnClickListener {
             viewModel.decrementWorkTime()
         }
         workPlusButton.setOnClickListener {
             viewModel.incrementWorkTime()
-        }
-    }
-
-    private fun setCountdownTimer(millisInFuture: Long) {
-        timer = object : CountDownTimer(millisInFuture, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                val minUntilFinished = millisUntilFinished.toMin().toDecimalString()
-                val secUntilFinished = millisUntilFinished.toSec().toDecimalString()
-                Timber.d("temp, minUntilFinished: $minUntilFinished : secUntilFinished: $secUntilFinished")
-                binding?.timerText?.text = "$minUntilFinished : $secUntilFinished"
-            }
-
-            override fun onFinish() {
-                Timber.d("temp, Time is out")
-            }
         }
     }
 

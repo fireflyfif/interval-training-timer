@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WorkoutHomeFragment">
+    tools:context=".ui.WorkoutHomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".HomeActivity">
+        tools:context=".ui.HomeActivity">
 
         <TextView
             android:id="@+id/sets"
@@ -211,16 +211,38 @@
             app:layout_constraintTop_toBottomOf="@+id/restPlusButton" />
 
         <TextView
+            android:id="@+id/currentSetText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/startWorkout"
+            android:layout_margin="24dp"
+            tools:text="1" />
+
+        <TextView
             android:id="@+id/timerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currentSetText"
+            android:layout_margin="24dp"
+            tools:text="10:00" />
+
+        <TextView
+            android:id="@+id/timerTypeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/startWorkout"
+            app:layout_constraintTop_toBottomOf="@+id/timerText"
             android:layout_margin="24dp"
-            tools:text="10:00" />
+            tools:text="REST" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"

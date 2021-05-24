@@ -7,7 +7,7 @@ buildscript {
         archLifecycleVersion = '2.2.0'
         timberVersion = '4.7.1'
         hiltAndroidXVersion = '1.0.0-alpha03'
-        navigationVersion = '2.4.0-alpha01'
+        navigationVersion = '2.3.5'
     }
     repositories {
         google()
@@ -17,6 +17,7 @@ buildscript {
         classpath "com.android.tools.build:gradle:4.2.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

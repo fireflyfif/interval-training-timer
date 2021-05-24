@@ -7,10 +7,45 @@
 
     <fragment
         android:id="@+id/home_dest"
-        android:name="com.example.intervaltrainingtimer.WorkoutHomeFragment"
-        android:label="Workout"
-        tools:layout="@layout/fragment_workout_home" >
+        android:name="com.example.intervaltrainingtimer.ui.WorkoutHomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_workout_home">
 
+        <action
+            android:id="@+id/action_start_workout"
+            app:destination="@+id/workout_dest" >
+            <argument
+                android:name="sets"
+                app:argType="integer"
+                android:defaultValue="1" />
+            <argument
+                android:name="workoutTime"
+                app:argType="long"
+                android:defaultValue="30000L" />
+            <argument
+                android:name="restTime"
+                app:argType="long"
+                android:defaultValue="30000L" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/workout_dest"
+        android:name="com.example.intervaltrainingtimer.ui.WorkoutBeginFragment"
+        android:label="Workout"
+        tools:layout="@layout/fragment_workout_begin">
+        <argument
+            android:name="sets"
+            app:argType="integer"
+            android:defaultValue="1" />
+        <argument
+            android:name="workoutTime"
+            app:argType="long"
+            android:defaultValue="30000L" />
+        <argument
+            android:name="restTime"
+            app:argType="long"
+            android:defaultValue="30000L" />
     </fragment>
 
 </navigation>
