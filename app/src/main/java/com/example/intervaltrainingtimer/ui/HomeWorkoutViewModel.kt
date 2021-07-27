@@ -9,17 +9,18 @@ import javax.inject.*
 class HomeWorkoutViewModel @Inject constructor() : ViewModel() {
 
     companion object {
-        const val SECONDS_30 = 5000L // 30000L
-        const val SECONDS_05 = 1000L
+        private const val SECONDS_30 = 30000L
+        const val SECOND_01 = 1000L
+        const val SECONDS_05 = 5000L
     }
 
     private val setsNumberMutable: MutableLiveData<Int> = MutableLiveData(1)
     val numberOfSets: LiveData<Int> = setsNumberMutable
 
-    private val workoutMillUntilFinishedMutable: MutableLiveData<Long> = MutableLiveData(SECONDS_30) // default value
+    private val workoutMillUntilFinishedMutable: MutableLiveData<Long> = MutableLiveData(SECONDS_05) // default value
     val workoutTimeInMillisecond: LiveData<Long> = workoutMillUntilFinishedMutable
 
-    private val restPeriodInMillisecondsMutable: MutableLiveData<Long> = MutableLiveData(SECONDS_30) // default value
+    private val restPeriodInMillisecondsMutable: MutableLiveData<Long> = MutableLiveData(SECONDS_05) // default value
     val restPeriodInMilliseconds: LiveData<Long> = restPeriodInMillisecondsMutable
 
     val combinedData = combineValues(
@@ -50,20 +51,20 @@ class HomeWorkoutViewModel @Inject constructor() : ViewModel() {
 
     fun decrementWorkTime() {
         if (workoutMillUntilFinishedMutable.value == 0L) return
-        workoutMillUntilFinishedMutable.value = workoutMillUntilFinishedMutable.value?.minus(1000)
+        workoutMillUntilFinishedMutable.value = workoutMillUntilFinishedMutable.value?.minus(SECOND_01)
     }
 
     fun incrementWorkTime() {
-        workoutMillUntilFinishedMutable.value = workoutMillUntilFinishedMutable.value?.plus(1000)
+        workoutMillUntilFinishedMutable.value = workoutMillUntilFinishedMutable.value?.plus(SECOND_01)
     }
 
     fun decrementRestingTime() {
         if (restPeriodInMillisecondsMutable.value == 0L) return
-        restPeriodInMillisecondsMutable.value = restPeriodInMillisecondsMutable.value?.minus(1000)
+        restPeriodInMillisecondsMutable.value = restPeriodInMillisecondsMutable.value?.minus(SECOND_01)
     }
 
     fun incrementRestingTime() {
-        restPeriodInMillisecondsMutable.value = restPeriodInMillisecondsMutable.value?.plus(1000)
+        restPeriodInMillisecondsMutable.value = restPeriodInMillisecondsMutable.value?.plus(SECOND_01)
     }
 }
 
