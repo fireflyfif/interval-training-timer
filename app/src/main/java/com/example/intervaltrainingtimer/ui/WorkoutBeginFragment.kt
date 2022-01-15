@@ -23,6 +23,7 @@ class WorkoutBeginFragment : Fragment() {
     private var binding: FragmentWorkoutBeginBinding? = null
     private var timer: CountDownTimer? = null
     private var localContext: Context? = null
+    private var milliLeft = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,8 +44,11 @@ class WorkoutBeginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         binding = FragmentWorkoutBeginBinding.inflate(layoutInflater, container, false)
         setCountdownTimerForWorkout(workTimeExtra, restTimeExtra)
+        Timber.d("temp, milliLeft: $milliLeft, workTimeExtra: $workTimeExtra")
+        pauseTimer(isRunning = milliLeft < workTimeExtra)
         return binding?.root
     }
 
@@ -62,6 +66,7 @@ class WorkoutBeginFragment : Fragment() {
                 localContext?.let {
                     binding?.timerText?.text = String.format(getString(R.string.workout_time), minUntilFinished, secUntilFinished)
                 }
+                milliLeft = millisUntilFinished
             }
 
             override fun onFinish() {
@@ -85,8 +90,12 @@ class WorkoutBeginFragment : Fragment() {
                 localContext?.let {
                     binding?.timerText?.text = String.format(getString(R.string.workout_time), minUntilFinished, secUntilFinished)
                 }
-                if (millisUntilFinished <= 3000L) {
-                    BeepHelper.beep(500)
+                Timber.d("temp, millisUntilFinished: $millisUntilFinished")
+                if (millisUntilFinished in 1001..4000L) {
+                    BeepHelper.shortBeep(500)
+                }
+                if (millisUntilFinished < 1000L) {
+                    BeepHelper.longBeep(1000)
                 }
             }
 
@@ -101,6 +110,16 @@ class WorkoutBeginFragment : Fragment() {
         localContext?.let {
             binding?.timerTypeText?.text = getString(R.string.workout_type_rest)
             binding?.layoutRoot?.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.orange, null))
+        }
+    }
+
+    private fun pauseTimer(isRunning: Boolean) {
+        binding?.pauseButton?.setOnClickListener {
+            if (isRunning) {
+                timer?.cancel()
+            } else {
+                timer?.start()
+            }
         }
     }
 
